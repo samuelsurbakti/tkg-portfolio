@@ -65,6 +65,152 @@ class PermissionSeeder extends Seeder
                 }
             }
 
+            if($menu->title == 'Beranda') {
+                Permission::create([
+                    'type' => 'Izin',
+                    'menu_id' => $menu->id,
+                    'name' => $menu->title.' - Melihat Informasi Pribadi',
+                    'guard_name' => 'web',
+                    'number' => $permission_number++,
+                ]);
+
+                Permission::create([
+                    'type' => 'Izin',
+                    'menu_id' => $menu->id,
+                    'name' => $menu->title.' - Mengubah Informasi Pribadi',
+                    'guard_name' => 'web',
+                    'number' => $permission_number++,
+                ]);
+
+                Permission::create([
+                    'type' => 'Izin',
+                    'menu_id' => $menu->id,
+                    'name' => $menu->title.' - Melihat Profesi',
+                    'guard_name' => 'web',
+                    'number' => $permission_number++,
+                ]);
+
+                Permission::create([
+                    'type' => 'Izin',
+                    'menu_id' => $menu->id,
+                    'name' => $menu->title.' - Menambah Profesi',
+                    'guard_name' => 'web',
+                    'number' => $permission_number++,
+                ]);
+
+                Permission::create([
+                    'type' => 'Izin',
+                    'menu_id' => $menu->id,
+                    'name' => $menu->title.' - Mengubah Profesi',
+                    'guard_name' => 'web',
+                    'number' => $permission_number++,
+                ]);
+
+                Permission::create([
+                    'type' => 'Izin',
+                    'menu_id' => $menu->id,
+                    'name' => $menu->title.' - Menghapus Profesi',
+                    'guard_name' => 'web',
+                    'number' => $permission_number++,
+                ]);
+
+                Permission::create([
+                    'type' => 'Izin',
+                    'menu_id' => $menu->id,
+                    'name' => $menu->title.' - Melihat Keahlian',
+                    'guard_name' => 'web',
+                    'number' => $permission_number++,
+                ]);
+
+                Permission::create([
+                    'type' => 'Izin',
+                    'menu_id' => $menu->id,
+                    'name' => $menu->title.' - Menambah Keahlian',
+                    'guard_name' => 'web',
+                    'number' => $permission_number++,
+                ]);
+
+                Permission::create([
+                    'type' => 'Izin',
+                    'menu_id' => $menu->id,
+                    'name' => $menu->title.' - Mengubah Keahlian',
+                    'guard_name' => 'web',
+                    'number' => $permission_number++,
+                ]);
+
+                Permission::create([
+                    'type' => 'Izin',
+                    'menu_id' => $menu->id,
+                    'name' => $menu->title.' - Menghapus Keahlian',
+                    'guard_name' => 'web',
+                    'number' => $permission_number++,
+                ]);
+
+                Permission::create([
+                    'type' => 'Izin',
+                    'menu_id' => $menu->id,
+                    'name' => $menu->title.' - Melihat Media Sosial',
+                    'guard_name' => 'web',
+                    'number' => $permission_number++,
+                ]);
+
+                Permission::create([
+                    'type' => 'Izin',
+                    'menu_id' => $menu->id,
+                    'name' => $menu->title.' - Menambah Media Sosial',
+                    'guard_name' => 'web',
+                    'number' => $permission_number++,
+                ]);
+
+                Permission::create([
+                    'type' => 'Izin',
+                    'menu_id' => $menu->id,
+                    'name' => $menu->title.' - Mengubah Media Sosial',
+                    'guard_name' => 'web',
+                    'number' => $permission_number++,
+                ]);
+
+                Permission::create([
+                    'type' => 'Izin',
+                    'menu_id' => $menu->id,
+                    'name' => $menu->title.' - Menghapus Media Sosial',
+                    'guard_name' => 'web',
+                    'number' => $permission_number++,
+                ]);
+
+                Permission::create([
+                    'type' => 'Izin',
+                    'menu_id' => $menu->id,
+                    'name' => $menu->title.' - Melihat Statistik',
+                    'guard_name' => 'web',
+                    'number' => $permission_number++,
+                ]);
+
+                Permission::create([
+                    'type' => 'Izin',
+                    'menu_id' => $menu->id,
+                    'name' => $menu->title.' - Menambah Statistik',
+                    'guard_name' => 'web',
+                    'number' => $permission_number++,
+                ]);
+
+                Permission::create([
+                    'type' => 'Izin',
+                    'menu_id' => $menu->id,
+                    'name' => $menu->title.' - Mengubah Statistik',
+                    'guard_name' => 'web',
+                    'number' => $permission_number++,
+                ]);
+
+                Permission::create([
+                    'type' => 'Izin',
+                    'menu_id' => $menu->id,
+                    'name' => $menu->title.' - Menghapus Statistik',
+                    'guard_name' => 'web',
+                    'number' => $permission_number++,
+                ]);
+            }
+
             if($menu->title == 'Sistem') {
                 Permission::create([
                     'type' => 'Izin',

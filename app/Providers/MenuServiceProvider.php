@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Sys\Menu;
 use Illuminate\Support\Str;
+use App\Models\PersonalInformation;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 

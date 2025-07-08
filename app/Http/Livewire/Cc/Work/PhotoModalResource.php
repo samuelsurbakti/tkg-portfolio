@@ -3,10 +3,11 @@
 namespace App\Http\Livewire\Cc\Work;
 
 use App\Models\Work;
-use App\Models\Work\Photo;
 use Livewire\Component;
-use Jantinnerezo\LivewireAlert\LivewireAlert;
+use App\Models\Work\Photo;
 use Livewire\WithFileUploads;
+use App\Services\ImageService;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class PhotoModalResource extends Component
 {
@@ -56,14 +57,12 @@ class PhotoModalResource extends Component
     {
         $this->validate();
 
-        if ($this->wp_photo) {
-            $wp_photo_name = uniqid('WP', true);
-            $extension = $this->wp_photo->getClientOriginalExtension();
-            $wp_photo_filename = $wp_photo_name . '.' . $extension;
-            $this->wp_photo->storeAs('src/img/work/', $wp_photo_filename);
-        } else {
-            $wp_photo_filename = $this->wp_photo_recent;
-        }
+        $wp_photo_filename = ImageService::storeWithWebp(
+            $this->wp_photo,
+            uniqid('WP', true),
+            'src/img/work/',
+            null
+        );
 
         $data = [
             'work_id' => $this->wp_work_id,

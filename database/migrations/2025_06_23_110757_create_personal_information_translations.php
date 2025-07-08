@@ -15,7 +15,8 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('locale')->index();
             $table->uuid('pi_id');
-            $table->string('story');
+            $table->longText('story');
+            $table->string('address');
 
             $table->unique(['pi_id', 'locale']);
             $table->foreign('pi_id')->references('id')->on('personal_information')->onDelete('cascade');

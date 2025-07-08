@@ -49,6 +49,13 @@ Route::domain('cc.kawalgurusinga.com')->group(function () {
         });
 
         Route::prefix('table')->group(function () {
+            Route::prefix('home')->group(function () {
+                Route::get('skill', [App\Http\Controllers\CC\Home::class, 'skill_dt'])->name('Table | CC | Home | Skill');
+                Route::get('social-media', [App\Http\Controllers\CC\Home::class, 'social_media_dt'])->name('Table | CC | Home | Social Media');
+                Route::get('statistic', [App\Http\Controllers\CC\Home::class, 'statistic_dt'])->name('Table | CC | Home | Statistic');
+                Route::get('profession', [App\Http\Controllers\CC\Home::class, 'profession_dt'])->name('Table | CC | Home | Profession');
+            });
+
             Route::prefix('work')->group(function () {
                 Route::get('category', [App\Http\Controllers\CC\Work::class, 'category_dt'])->name('Table | CC | Work | Category');
             });

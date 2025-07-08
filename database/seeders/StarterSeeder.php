@@ -16,17 +16,18 @@ class StarterSeeder extends Seeder
      */
     public function run(): void
     {
-        $dev = Role::where('name', 'Developer')->first();
+        foreach (Role::orderBy('name')->get() as $role) {
 
-        foreach (Menu::orderBy('order_number')->get() as $menu) {
-            RoleMenu::create([
-                'role_id' => $dev->uuid,
-                'menu_id' => $menu->id
-            ]);
-        }
+            foreach (Menu::orderBy('order_number')->get() as $menu) {
+                RoleMenu::create([
+                    'role_id' => $role->uuid,
+                    'menu_id' => $menu->id
+                ]);
+            }
 
-        foreach (Permission::orderBy('number')->get() as $permission) {
-            $dev->givePermissionTo($permission->name);
+            foreach (Permission::orderBy('number')->get() as $permission) {
+                $role->givePermissionTo($permission->name);
+            }
         }
     }
 }

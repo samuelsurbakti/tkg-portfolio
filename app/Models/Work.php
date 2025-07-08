@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Work\Category;
 use App\Models\Work\Photo;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Translatable;
@@ -21,5 +22,15 @@ class Work extends Model implements ContractsTranslatable
     public function photos()
     {
         return $this->hasMany(Photo::class, 'work_id');
+    }
+
+    public function firstPhoto()
+    {
+        return $this->hasOne(Photo::class, 'work_id')->oldest();
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
     }
 }

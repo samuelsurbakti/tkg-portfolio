@@ -1,60 +1,47 @@
 <header id="header" class="sticky-top">
     <nav class="primary-menu navbar navbar-expand-lg navbar-dark bg-dark border-bottom-0">
         <div class="container-fluid position-relative h-100 flex-lg-column ps-3 px-lg-3 pt-lg-3 pb-lg-2">
-            <a href="index-2.html" class="mb-lg-auto mt-lg-4">
+            <a disabled class="mb-lg-auto mt-lg-4 d-flex flex-column align-items-center">
                 <span class="bg-dark-2 rounded-pill p-2 mb-lg-1 d-none d-lg-inline-block">
-                    <img class="img-fluid rounded-pill d-block" src="images/profile.jpg" title="I'm Simone" alt="">
+                    {!! \App\Helpers\ImageHelper::picture('pi', $app_pi->photo, 'avatar', ['loading' => 'lazy', 'class' => 'img-fluid rounded-pill d-block', 'title' => __('section.about.me').' '.$app_pi->name, ]) !!}
                 </span>
-                <h1 class="text-5 text-white text-center mb-0 d-lg-block">Teguh Kawal Gurusinga</h1>
+                <h1 class="text-5 text-white text-center mb-0 d-lg-block">{{ $app_pi->name }}</h1>
             </a>
             <div id="header-nav" class="collapse navbar-collapse w-100 my-lg-auto">
                 <ul class="navbar-nav text-lg-center my-lg-auto py-lg-3">
                     <li class="nav-item">
-                        <a class="nav-link smooth-scroll active" href="#home">Home</a>
+                        <a class="nav-link smooth-scroll active" href="#home">{{ __('navigation.home') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link smooth-scroll" href="#about">About Me</a>
+                        <a class="nav-link smooth-scroll" href="#about">{{ __('navigation.about') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link smooth-scroll" href="#services">What I Do</a>
+                        <a class="nav-link smooth-scroll" href="#services">{{ __('navigation.services') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link smooth-scroll" href="#resume">Resume</a>
+                        <a class="nav-link smooth-scroll" href="#resume">{{ __('navigation.experience') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link smooth-scroll" href="#portfolio">Portfolio</a>
+                        <a class="nav-link smooth-scroll" href="#portfolio">{{ __('navigation.projects') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link smooth-scroll" href="#testimonial">Testimonial</a>
+                        <a class="nav-link smooth-scroll" href="#testimonial">{{ __('navigation.testimonials') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link smooth-scroll" href="#contact">Contact</a>
+                        <a class="nav-link smooth-scroll" href="#contact">{{ __('navigation.contact') }}</a>
                     </li>
                 </ul>
             </div>
-            <ul class="social-icons social-icons-muted social-icons-sm mt-lg-auto ms-auto ms-lg-0 d-flex">
-                <li class="social-icons-facebook">
-                    <a data-bs-toggle="tooltip" title="Facebook" href="http://www.facebook.com/" target="_blank">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                </li>
-                <li class="social-icons-twitter">
-                    <a data-bs-toggle="tooltip" title="Twitter" href="http://www.twitter.com/" target="_blank">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                </li>
-                <li class="social-icons-dribbble">
-                    <a data-bs-toggle="tooltip" title="Dribbble" data-bs-placement="top" href="http://www.dribbble.com/" target="_blank">
-                        <i class="fab fa-dribbble"></i>
-                    </a>
-                </li>
-                <li class="social-icons-github">
-                    <a data-bs-toggle="tooltip" title="GitHub" data-bs-placement="top" href="http://www.google.com/" target="_blank">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </li>
+            <ul class="social-icons social-icons-muted social-icons-sm mt-lg-auto ms-auto ms-lg-0 d-lg-flex d-none">
+                @foreach ($app_social_medias as $app_social_media)
+                    <li class="">
+                        <a data-bs-toggle="tooltip" title="{{ $app_social_media->name }}" href="{{ $app_social_media->url }}" target="_blank">
+                            <i class="fab {{ $app_social_media->icon_class }}"></i>
+                        </a>
+                    </li>
+                @endforeach
             </ul>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#header-nav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#header-nav" aria-label="Navbar Toggler">
                 <span></span>
                 <span></span>
                 <span></span>

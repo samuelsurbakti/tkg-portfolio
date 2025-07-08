@@ -185,7 +185,8 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'Example' => App\Facades\Example::class,
+        'Carbon' => Illuminate\Support\Carbon::class,
+        'Webp' => Buglinjo\LaravelWebp\Facades\Webp::class,
     ])->toArray(),
 
 ];

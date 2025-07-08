@@ -27,5 +27,19 @@ class UserSeeder extends Seeder
         ]);
 
         $dev->assignRole('Developer');
+
+        $avatar_k = md5('Kawal Gurusinga');
+        Avatar::create('Kawal Gurusinga')->save(storage_path('app/src/img/user/'.$avatar_k.'.png'), $quality = 100);
+
+        $owner = User::create([
+            'name' => 'Kawal Gurusinga',
+            'username' => 'kawalgurusinga',
+            'email' => 'gurusingakawal@gmail.com',
+            'password' => bcrypt('Anjingkau@123'),
+            'avatar' => $avatar_k.'.png',
+            'account_status' => '1',
+        ]);
+
+        $owner->assignRole('Owner');
     }
 }

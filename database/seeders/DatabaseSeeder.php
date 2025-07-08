@@ -26,5 +26,20 @@ class DatabaseSeeder extends Seeder
         $this->call(ExperienceTranslationsTableSeeder::class);
         $this->call(ServicesTableSeeder::class);
         $this->call(ServiceTranslationsTableSeeder::class);
+        $this->call(PersonalInformationTableSeeder::class);
+        $this->call(PersonalInformationTranslationsTableSeeder::class);
+        $this->call(ProfessionsTableSeeder::class);
+        $this->call(ProfessionTranslationsTableSeeder::class);
+        $this->call(SkillsTableSeeder::class);
+        $this->call(SkillTranslationsTableSeeder::class);
+        $this->call(SocialMediaTableSeeder::class);
+        $this->call(StatisticsTableSeeder::class);
+        $this->call(StatisticTranslationsTableSeeder::class);
+        $this->call(WorkCategoriesTableSeeder::class);
+        $this->call(WorkCategoryTranslationsTableSeeder::class);
+        $this->call(WorkPhotosTableSeeder::class);
+        $this->call(WorksTableSeeder::class);
+        $this->call(WorkTranslationsTableSeeder::class);
+        $this->call(SeoMetadataSeeder::class);
     }
 }

@@ -1,2 +1,4 @@
 User-agent: *
 Disallow:
+
+Sitemap: https://kawalgurusinga.com/sitemap.xml

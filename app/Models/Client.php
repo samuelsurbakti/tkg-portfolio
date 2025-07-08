@@ -16,4 +16,34 @@ class Client extends Model implements ContractsTranslatable
     protected $table = 'clients';
     protected $fillable = ['name', 'photo', 'star'];
     public $translatedAttributes = ['description', 'testimonial'];
+
+    /**
+     * Get the client's full stars.
+     *
+     * @return int
+     */
+    public function getFullStarsAttribute(): int
+    {
+        return floor($this->star);
+    }
+
+    /**
+     * Determine if the client has a half star.
+     *
+     * @return bool
+     */
+    public function getHasHalfStarAttribute(): bool
+    {
+        return ($this->star - $this->full_stars) >= 0.5;
+    }
+
+    /**
+     * Get the client's empty stars.
+     *
+     * @return int
+     */
+    public function getEmptyStarsAttribute(): int
+    {
+        return 5 - $this->full_stars - ($this->has_half_star ? 1 : 0);
+    }
 }

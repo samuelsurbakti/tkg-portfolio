@@ -17,9 +17,9 @@ class DetectLocaleFromDomain
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Str::startsWith($request->getHost(), 'id.')) {
+        if (Str::startsWith($request->getHost(), ['id.', 'www.id.'])) {
             App::setLocale('id');
-        } elseif (Str::startsWith($request->getHost(), 'en.')) {
+        } elseif (Str::startsWith($request->getHost(), ['en.', 'www.en.'])) {
             App::setLocale('en');
         }
 
